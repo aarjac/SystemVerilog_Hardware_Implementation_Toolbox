@@ -45,7 +45,10 @@ endmodule
 //D flipflop 
 /*
 Description: 
+
+Paramerterized D flipflop. To be used as N bit D register to store data.
 Features: 
+
 paramaterized bit
 snchoronous clk signal
 asynchronous reset
