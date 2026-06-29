@@ -3,3 +3,5 @@ Hardware_Implementation_Toolbox.mpf
 transcript
 HIT_quartus/
 work/
+HIT_filelogs/
+vsim.wlf
