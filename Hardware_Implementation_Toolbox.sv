@@ -44,9 +44,7 @@ endmodule
 //FLIPFLOPS
 //D flipflop 
 /*
-Description: 
-
-Paramerterized D flipflop. To be used as N bit D register to store data.
+Description: Paramerterized D flipflop. To be used as N bit D register to store data.
 Features: 
 
 paramaterized bit
@@ -66,259 +64,263 @@ assign Qn = ~Q;
 endmodule
 
 //Conversion of ASCII values to 7-Segment Display
-//Problem 1 ASCII to 7-seg display conversion
-module ASCII27Seg(input [7:0] AsciiCode, output reg [6:0] HexSeg);
-    always @(*) begin   //for ASCII27Seg module always statment
+/*
+Description: 
+
+Features: 
+*/
+
+module ASCII27Seg(input [7:0] AsciiCode, output logic [6:0] HexSeg);
+    always_comb begin 
         HexSeg = 7'd0;  //initialization of variable HexSeg, turn all segments ON
-        $display("AsciiCode %b", AsciiCode);
         case(AsciiCode)
             //uppercase and lowercase letters
-                //A
-            8'h41 : HexSeg[3] = 1;
-                //a
-            8'h61 : HexSeg[3] = 1;
-                //B
+            //A
+            8'h41 : HexSeg[3] = 1'b1;
+            //a
+            8'h61 : HexSeg[3] = 1'b1;
+            //B
             8'h42 : begin 
-                HexSeg[0] = 1; HexSeg[1] = 1;
+                HexSeg[0] = 1'b1; HexSeg[1] = 1'b1;
             end
-                //b
+            //b
             8'h62 : begin 
-                HexSeg[0] = 1; HexSeg[1] = 1;
+                HexSeg[0] = 1'b1; HexSeg[1] = 1'b1;
             end
-                //C
+            //C
             8'h43 : begin
-                HexSeg[1] = 1; HexSeg[2] = 1; HexSeg[6] = 1;
+                HexSeg[1] = 1'b1; HexSeg[2] = 1'b1; HexSeg[6] = 1'b1;
             end
-                //c
+            //c
             8'h63 : begin
-                HexSeg[1] = 1; HexSeg[2] = 1; HexSeg[6] = 1;
+                HexSeg[1] = 1'b1; HexSeg[2] = 1'b1; HexSeg[6] = 1'b1;
             end
-                //D
+            //D
             8'h44 : begin
-                HexSeg [0] = 1; HexSeg[5] = 1;
+                HexSeg [0] = 1'b1; HexSeg[5] = 1'b1;
             end
-                //d
+            //d
             8'h64 : begin
-                HexSeg [0] = 1; HexSeg[5] = 1;
+                HexSeg [0] = 1'b1; HexSeg[5] = 1'b1;
             end
-                //E
+            //E
             8'h45 : begin
-                HexSeg [1] = 1; HexSeg[2] = 1;
+                HexSeg [1] = 1'b1; HexSeg[2] = 1'b1;
             end
-                //e
+            //e
             8'h65 : begin
-                HexSeg [1] = 1; HexSeg[2] = 1;
+                HexSeg [1] = 1'b1; HexSeg[2] = 1'b1;
             end
-                //F
+            //F
             8'h46 : begin
-                HexSeg [1] = 1; HexSeg[2] = 1; HexSeg[3] = 1;
+                HexSeg [1] = 1'b1; HexSeg[2] = 1'b1; HexSeg[3] = 1'b1;
             end
-                //f
+            //f
             8'h66 : begin
-                HexSeg [1] = 1; HexSeg[2] = 1; HexSeg[3] = 1;
+                HexSeg [1] = 1'b1; HexSeg[2] = 1'b1; HexSeg[3] = 1'b1;
             end
-                //G
+            //G
             8'h47 : begin
-                HexSeg [4] = 1;
+                HexSeg [4] = 1'b1;
             end
-                //g
+            //g
             8'h67 : begin
-                HexSeg [4] = 1;
+                HexSeg [4] = 1'b1;
             end
-                //H
+            //H
             8'h48 : begin
-                HexSeg [0] = 1; HexSeg [3]= 1;
+                HexSeg [0] = 1'b1; HexSeg [3]= 1'b1;
             end
-                //h
+            //h
             8'h68 : begin
-                HexSeg [0] = 1; HexSeg [3]= 1;
+                HexSeg [0] = 1'b1; HexSeg [3]= 1'b1;
             end
-                //I
+            //I
             8'h49 : begin
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1; HexSeg [3] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1; HexSeg [3] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //i
+            //i
             8'h69 : begin
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1; HexSeg [3] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1; HexSeg [3] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //J
+            //J
             8'h4A : begin
-                HexSeg [0] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //j
+            //j
             8'h6A : begin
-                HexSeg [0] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //K
+            //K
             8'h4B : begin
-                HexSeg [0] = 1; HexSeg [3]= 1;
+                HexSeg [0] = 1'b1; HexSeg [3]= 1'b1;
             end
-                //k
+            //k
             8'h6B : begin
-                HexSeg [0] = 1; HexSeg [3]= 1;
+                HexSeg [0] = 1'b1; HexSeg [3]= 1'b1;
             end
-                //L
+            //L
             8'h4C : begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //l
+            //l
             8'h6C : begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //M
+            //M
             8'h4D: begin 
-                HexSeg [1] = 1; HexSeg [3] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+                HexSeg [1] = 1'b1; HexSeg [3] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //m
+            //m
             8'h6D: begin 
-                HexSeg [1] = 1; HexSeg [3] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+                HexSeg [1] = 1'b1; HexSeg [3] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //N
+            //N
             8'h4E: begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [3] = 1; HexSeg [5] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [3] = 1'b1; HexSeg [5] = 1'b1;
             end
-                //n
+            //n
             8'h6E: begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [3] = 1; HexSeg [5] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [3] = 1'b1; HexSeg [5] = 1'b1;
             end
-                //O
+            //O
             8'h4F : begin 
-                HexSeg [6] = 1;
+                HexSeg [6] = 1'b1;
             end
-                //o
+            //o
             8'h6F : begin 
-                HexSeg [6] = 1;
+                HexSeg [6] = 1'b1;
             end
-                //P
+            //P
             8'h50 : begin 
-                HexSeg [2] = 1; HexSeg [3] = 1;
+                HexSeg [2] = 1'b1; HexSeg [3] = 1'b1;
             end
                 //p
             8'h70 : begin 
-                HexSeg [2] = 1; HexSeg [3] = 1;
+                HexSeg [2] = 1'b1; HexSeg [3] = 1'b1;
             end
-                //Q
+            //Q
             8'h51 : begin
-                HexSeg [3] = 1; HexSeg [4] = 1;
+                HexSeg [3] = 1'b1; HexSeg [4] = 1'b1;
             end
-                //q
+            //q
             8'h71 : begin
-                HexSeg [3] = 1; HexSeg [4] = 1;
+                HexSeg [3] = 1'b1; HexSeg [4] = 1'b1;
             end
-                //R
+            //R
             8'h52 : begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1; HexSeg [3] = 1; HexSeg [5] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1; HexSeg [3] = 1'b1; HexSeg [5] = 1'b1;
             end
-                //r
+            //r
             8'h72 : begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1; HexSeg [3] = 1; HexSeg [5] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1; HexSeg [3] = 1'b1; HexSeg [5] = 1'b1;
             end
-                //S
+            //S
             8'h53 : begin
-                HexSeg [1] = 1; HexSeg [4] = 1;
+                HexSeg [1] = 1'b1; HexSeg [4] = 1'b1;
             end
-                //s
+            //s
             8'h73 : begin
-                HexSeg [1] = 1; HexSeg [4] = 1;
+                HexSeg [1] = 1'b1; HexSeg [4] = 1'b1;
             end
-                //T
+            //T
             8'h54 : begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1;
             end
-                //t
+            //t
             8'h74 : begin 
-                HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [2] = 1;
+                HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [2] = 1'b1;
             end
-                //U
+            //U
             8'h55 : begin 
-                HexSeg [0] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //u
+            //u
             8'h75 : begin 
-                HexSeg [0] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //V
+            //V
             8'h56 : begin 
-            HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+            HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end 
-                //V
+            //V
             8'h76 : begin 
-            HexSeg [0] = 1; HexSeg [1] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+            HexSeg [0] = 1'b1; HexSeg [1] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end 
-                //W
+            //W
             8'h57 : begin 
-                HexSeg [0] = 1; HexSeg [2] = 1; HexSeg [4] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [2] = 1'b1; HexSeg [4] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //w
+            //w
             8'h77 : begin 
-                HexSeg [0] = 1; HexSeg [2] = 1; HexSeg [4] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [2] = 1'b1; HexSeg [4] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //X
+            //X
             8'h58 : begin 
-                HexSeg [0] = 1; HexSeg [3]= 1;
+                HexSeg [0] = 1'b1; HexSeg [3]= 1'b1;
             end
-                //x
+            //x
             8'h78 : begin 
-                HexSeg [0] = 1; HexSeg [3]= 1;
+                HexSeg [0] = 1'b1; HexSeg [3]= 1;
             end
-                //Y
+            //Y
             8'h59 : begin 
-                HexSeg [0] = 1; HexSeg [4]= 1;
+                HexSeg [0] = 1'b1; HexSeg [4]= 1'b1;
             end
-                //y
+            //y
             8'h79 : begin 
-                HexSeg [0] = 1; HexSeg [4]= 1;
+                HexSeg [0] = 1'b1; HexSeg [4]= 1'b1;
             end
-                //Z
+            //Z
             8'h5A : begin 
-                HexSeg [2] = 1; HexSeg [5]= 1;
+                HexSeg [2] = 1'b1; HexSeg [5]= 1'b1;
             end
-                //z
+            //z
             8'h7A : begin 
-                HexSeg [2] = 1; HexSeg [5]= 1;
+                HexSeg [2] = 1'b1; HexSeg [5]= 1'b1;
             end
             //numbers 0-9
-                //0
+            //0
             8'h30 : begin 
-                HexSeg [6] = 1;
+                HexSeg [6] = 1'b1;
             end
-                //1
+            //1
             8'h31 : begin 
-                HexSeg [0] = 1; HexSeg [3] = 1; HexSeg [4] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+                HexSeg [0] = 1'b1; HexSeg [3] = 1'b1; HexSeg [4] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //2
+            //2
             8'h32 : begin 
-                HexSeg [2] = 1; HexSeg [5] = 1;
+                HexSeg [2] = 1'b1; HexSeg [5] = 1'b1;
             end
-                //3
+            //3
             8'h33 : begin 
-                HexSeg [4] = 1; HexSeg [5] = 1;
+                HexSeg [4] = 1'b1; HexSeg [5] = 1'b1;
             end
-                //4
+            //4
             8'h34 : begin 
-                HexSeg [0] = 1; HexSeg [3] = 1; HexSeg [4] = 1;
+                HexSeg [0] = 1'b1; HexSeg [3] = 1'b1; HexSeg [4] = 1'b1;
             end
-                //5
+            //5
             8'h35 : begin 
-                HexSeg [1] = 1; HexSeg [4] = 1;
+                HexSeg [1] = 1'b1; HexSeg [4] = 1'b1;
             end    
-                //6
+            //6
             8'h36 : begin 
-                HexSeg [1] = 1;
+                HexSeg [1] = 1'b1;
             end
-                //7
+            //7
             8'h37 : begin 
-                HexSeg [3] = 1; HexSeg [4] = 1; HexSeg [5] = 1; HexSeg [6] = 1;
+                HexSeg [3] = 1'b1; HexSeg [4] = 1'b1; HexSeg [5] = 1'b1; HexSeg [6] = 1'b1;
             end
-                //8
+            //8
             8'h38 : begin 
                 //all segments ON
             end
-                //9
+            //9
             8'h39 : begin 
-                HexSeg [4] = 1;
+                HexSeg [4] = 1'b1;
             end
             default : HexSeg = 8'b11111111;  //defualt of variable HexSeg, all segments OFF
         endcase
-    end           //for ASCII27Seg module always block 
-endmodule //for ASCII27Seg module
+    end 
+endmodule
