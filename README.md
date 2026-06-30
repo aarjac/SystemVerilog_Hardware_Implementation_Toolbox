@@ -23,7 +23,8 @@ MUX
 DeMUX
 Decoder
 
-Testing Required: 4:1 MUX, D_flipflop, arithmetic operations, 
+
+Testing Required: 4:1 MUX, D_flipflop, arithmetic operations, ASCII to 7-seg display,
 
 test 4:1 MUX, D flipflop
 

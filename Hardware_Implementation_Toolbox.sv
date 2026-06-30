@@ -65,9 +65,11 @@ endmodule
 
 //Conversion of ASCII values to 7-Segment Display
 /*
-Description: 
+Description: Takes ASCII value input, converts it, and displays in on 7-segment display
 
 Features: 
+
+Specifically for DE10-Lite FPGA board. Each segment of display is active low.
 */
 
 module ASCII27Seg(input [7:0] AsciiCode, output logic [6:0] HexSeg);
